@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+</head>
+<body>
+<h1>Login</h1>
+<!--sec:authorize: spring security가 제공해주는 인증에 관한 정보를 사용
+isAnonymous(): 로그인이 이루어지지 않은 상태
+isAuthenticated: 현재 로그인 여부 상태 체크-->
+<h3 sec:authorize="isAuthenticated()">반갑습니다. <span sec:authentication="name"></span>님!</h3>
+<hr>
+<a sec:authorize="isAnonymous()" th:href="@{/member/login}">로그인</a>
+<a sec:authorize="isAuthenticated()" th:href="@{/member/logout}">로그아웃</a>
+<a sec:authorize="isAnonymous()" th:href="@{/member/signup}">회원가입</a>
+</body>
+</html>

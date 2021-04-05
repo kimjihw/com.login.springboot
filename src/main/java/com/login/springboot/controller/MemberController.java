@@ -15,14 +15,14 @@ public class MemberController {
 
     @GetMapping("/")
     public String index() {
-        return "/home/index";
+        return "/index";
     }
 
-    @GetMapping("member/signup")
+    @GetMapping("/member/signup")
     public String signupForm(Model model) {
         model.addAttribute("member",new MemberDto());
 
-        return "member/signup";
+        return "/signup";
     }
 
     @PostMapping("/member/signup")
@@ -32,8 +32,8 @@ public class MemberController {
         return "redirect:/";
     }
 
-    @GetMapping("member/login")
+    @GetMapping("/member/login")
     public String login() {
-        return "/member/login";
+        return "/login";
     }
 }
